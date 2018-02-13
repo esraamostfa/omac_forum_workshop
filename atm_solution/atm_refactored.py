@@ -6,22 +6,22 @@ def give_banknote(request):
 	withdraw = request
 
 	for banknote in banknotes:
-			while withdraw >= banknote:
+		while withdraw >= banknote:
 				print ("give " + str(banknote))
 				withdraw-= banknote
 	
 
 def withdraw(balance, request):
 	print("Current balance = " + str(balance)) 
-
-	if request <= balance:
-		give_banknote(request)
 	
-	elif request < 0:
+	if request < 0:
 		print("More than zero plz!")
 
-	else:
+	elif request > balance:
 		print("You don't have enough money!")
+
+	else:
+		give_banknote(request)
 
 	balance-= request
 	return "Current balance = " + str(balance)
