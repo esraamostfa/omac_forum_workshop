@@ -1,32 +1,48 @@
-balance = 500
+class ATM:
+	def __init__(self, balance, bank_name):
+		self.balance = balance
+		self.bank_name = bank_name
 
-def give_banknote(request):
+	def give_banknote(self, request):
 
-	banknotes = [100, 50, 10, 5, 1]
-	withdraw = request
+		self.request = request
+		self.banknotes = [100, 50, 10, 5, 1]
+		self.withdrawn_money = self.request
 
-	for banknote in banknotes:
-		while withdraw >= banknote:
-				print ("give " + str(banknote))
-				withdraw-= banknote
-	
+		for self.banknote in self.banknotes:
+			while self.withdrawn_money >= self.banknote:
+				print ("give " + str(self.banknote))
+				self.withdrawn_money-= self.banknote
+		 
 
-def withdraw(balance, request):
-	new_balance = balance
-	print("Current balance = " + str(new_balance)) 
-	
-	if request < 0:
-		print("More than zero plz!")
+	def withdraw(self, request):
+		self.request = request
 
-	elif request > balance:
-		print("You don't have enough money!")
+		print("Welcome to "+ self.bank_name)
+		print("Current balance = " + str(self.balance))
 
-	else:
-		balance-=request
-		give_banknote(request)
+		if self.request < 0:
+			print("More than zero plz!")
 
-	return balance
+		elif self.request > self.balance:
+			print("There is no enough money!")
+
+		else:
+			self.give_banknote(request)
+			self.balance-= self.request
+
+		return self.balance
 
 
-balance = withdraw(balance, 280)
-balance = withdraw(balance, 150)
+balance1 = 500
+balance2 = 1000
+		
+atm1 = ATM(balance1, "Smart Bank")
+atm2 = ATM(balance2, "Baraka Bank")
+
+
+balance1= atm1.withdraw(277)
+balance1= atm1.withdraw(800)
+
+balance2= atm2.withdraw(100)
+balance2= atm2.withdraw(2000)

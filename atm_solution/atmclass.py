@@ -3,17 +3,18 @@ class ATM:
 		self.balance = balance
 		self.bank_name = bank_name
 
-	def give_banknote(request):
+	def give_banknote(self, request):
 
 		self.request = request
 		self.banknotes = [100, 50, 10, 5, 1]
-		self.withdraw = self.request
+		self.withdrawn_money = self.request
 
 		for self.banknote in self.banknotes:
-			while self.withdraw >= self.banknote:
+			while self.withdrawn_money >= self.banknote:
 				print ("give " + str(self.banknote))
-				self.withdraw-= self.banknote
+				self.withdrawn_money-= self.banknote
 		 
+
 	def withdraw(self, request):
 		self.request = request
 
@@ -24,13 +25,14 @@ class ATM:
 			print("More than zero plz!")
 
 		elif self.request > self.balance:
-			print("You don't have enough money!")
+			print("There is no enough money!")
 
 		else:
-			self.give_banknote()
-			
-		self.balance-= self.request
-		#return "Current balance = " + str(balance)
+			self.give_banknote(request)
+			self.balance-= self.request
+
+		return self.balance
+
 
 balance1 = 500
 balance2 = 1000
@@ -39,5 +41,8 @@ atm1 = ATM(balance1, "Smart Bank")
 atm2 = ATM(balance2, "Baraka Bank")
 
 
-atm1.withdraw(int(input("How many money do you need? ")))
-atm2.withdraw(int(input("How many money do you need? ")))
+balance1= atm1.withdraw(277)
+balance1= atm1.withdraw(800)
+
+balance2= atm2.withdraw(100)
+balance2= atm2.withdraw(2000)
