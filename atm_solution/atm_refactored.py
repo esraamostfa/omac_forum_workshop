@@ -1,16 +1,21 @@
 balance = 500
 
-def withdraw(balance, request):
-	print("Current balance = " + str(balance)) 
+def give_banknote(request):
 
 	banknotes = [100, 50, 10, 5, 1]
 	withdraw = request
 
-	if request <= balance:
-		for banknote in banknotes:
+	for banknote in banknotes:
 			while withdraw >= banknote:
 				print ("give " + str(banknote))
 				withdraw-= banknote
+	
+
+def withdraw(balance, request):
+	print("Current balance = " + str(balance)) 
+
+	if request <= balance:
+		give_banknote(request)
 	
 	elif request < 0:
 		print("More than zero plz!")
