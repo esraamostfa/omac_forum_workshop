@@ -4,14 +4,12 @@ class ATM:
 		self.bank_name = bank_name
 		self.withdrawals_list = []
 
-	def give_banknote(self, request):
+	def give_banknote(self, request, banknotes = [100, 50, 10, 5, 1]):
 
-		banknotes = [100, 50, 10, 5, 1]
 		for banknote in banknotes:
 			while request >= banknote:
 				print ("give " + str(banknote))
-				request-= banknote
-		 
+				request-= banknote		 
 
 	def withdraw(self, request):
 
@@ -30,7 +28,6 @@ class ATM:
 			self.balance-= request
 
 		return self.balance
-
 
 	def show_withdrawals(self):
 		print("withdrawals of " + self.bank_name + ":")
