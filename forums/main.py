@@ -1,8 +1,8 @@
 import models
 import stores
 
-member1 = models.Member("Mohamad", 23)
-member2 = models.Member("Ahmad", 25)
+member1 = models.Member("Mohamad", 23, id)
+member2 = models.Member("Ahmad", 25, id)
 
 post1 = models.Post("post 1", "this is post 1")
 post2 = models.Post("post 2", "this is post 2")
@@ -20,3 +20,6 @@ posts_store.add(post3)
 
 members_store.get_all()
 posts_store.get_all()
+
+members_store.get_by_id(1)
+members_store.get_by_id(2)
