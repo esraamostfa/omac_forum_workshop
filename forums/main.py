@@ -26,3 +26,7 @@ members_store.get_by_id(2)
 
 print(members_store.entity_exists(member1))
 print(members_store.entity_exists(member2))
+
+members_store.delete(2)
+
+print(members_store.entity_exists(member2))

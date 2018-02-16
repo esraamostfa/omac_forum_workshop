@@ -25,6 +25,12 @@ class MembersStore:
 			return True
 		return False
 
+	def delete(self, id):
+		all_members = self.get_all()
+		member_to_delete = self.get_by_id(id)
+
+		all_members.remove(member_to_delete)
+
 
 class PostsStore:
 	posts = []
