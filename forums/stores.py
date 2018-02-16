@@ -17,13 +17,13 @@ class MembersStore:
 		for member in all_members:
 			if member.id == id:
 				return member 
+		return None
 
 	def entity_exists(self, member):
-		all_members = self.get_all()
 
-		if member in all_members:
-			return True
-		return False
+		if self.get_by_id(member.id) is None:
+			return False
+		return True
 
 	def delete(self, id):
 		all_members = self.get_all()
