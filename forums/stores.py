@@ -18,6 +18,13 @@ class MembersStore:
 			if member.id == id:
 				return member 
 
+	def entity_exists(self, member):
+		all_members = self.get_all()
+
+		if member in all_members:
+			return True
+		return False
+
 
 class PostsStore:
 	posts = []
