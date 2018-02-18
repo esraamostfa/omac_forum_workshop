@@ -39,3 +39,6 @@ post1_copy = models.Post(post1.title, post1.subject)
 posts_store.update(post1_copy, "post 1 copy", "this is post 1 copy")
 print(post1.title + ":" , post1.subject)
 print(post1_copy.title + ":", post1_copy.subject)
+		
+print(members_store.get_by_name('Mohamad'))
+print(members_store.get_by_name('Ahmad'))
