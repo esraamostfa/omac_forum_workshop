@@ -28,5 +28,14 @@ print(members_store.entity_exists(member1))
 print(members_store.entity_exists(member2))
 
 members_store.delete(2)
-
 print(members_store.entity_exists(member2))
+
+member1_copy = models.Member(member1.name, member1.age, member1.id)
+members_store.update(member1_copy, 'Mazen', 21)
+print(member1.name, member1.age)
+print(member1_copy.name, member1_copy.age)
+
+post1_copy = models.Post(post1.title, post1.subject)
+posts_store.update(post1_copy, "post 1 copy", "this is post 1 copy")
+print(post1.title + ":" , post1.subject)
+print(post1_copy.title + ":", post1_copy.subject)
