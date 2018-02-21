@@ -3,7 +3,7 @@ class Member:
 		self.name = name
 		self.age = age
 		self.id = 0
-		posts = []
+		self.posts = []
 
 	def __str__(self):
 		return f"Name: {self.name}, Age: {self.age}"

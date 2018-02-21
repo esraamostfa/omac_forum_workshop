@@ -66,6 +66,20 @@ def update_member(members_store, member):
 	
 def get_member_by_name(members_store, name):	
 	print(members_store.get_by_name(name))
+	print("=" * 30)
+
+def print_members_with_posts(members_store):
+	members_with_posts = members_store.get_members_with_posts(posts_store.get_all())
+
+	for member_with_posts in members_with_posts:
+		print(f"{member_with_posts} has posts:")
+		for post in member_with_posts.posts:
+			print(f"\t{post}")
+
+	print("=" * 30)
+
+
+
 
 #--------------------------call functions for tests------------------------
 
@@ -83,3 +97,4 @@ get_member_by_id(members_store, 1)
 delete_member(members_store, member2)
 update_member(members_store ,member3)
 get_member_by_name(members_store, "Mohammad")
+print_members_with_posts(members_store)

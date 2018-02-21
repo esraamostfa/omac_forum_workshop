@@ -39,6 +39,17 @@ class MembersStore:
 	def get_by_name(self, name):
 		return (member for member in self.get_all() if member.name == name)
 
+	def get_members_with_posts(self, all_posts):
+		all_members = self.get_all()
+
+		for post in all_posts:
+			for member in all_members:
+				if post.member_id == member.id:
+					member.posts.append(post)
+
+		return (all_members)
+
+
 class PostsStore:
 	posts = []
 	last_id = 1
