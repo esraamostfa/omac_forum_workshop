@@ -17,9 +17,9 @@ def creat_members():
 
 def creat_posts():
 
-	post1 = models.Post("post 1", "this is post 1")
-	post2 = models.Post("post 2", "this is post 2")
-	post3 = models.Post("post 3", "this is post 3")
+	post1 = models.Post("post 1", "this is post 1", 1)
+	post2 = models.Post("post 2", "this is post 2", 2)
+	post3 = models.Post("post 3", "this is post 3", 3)
 	print(post1)
 	print(post2)
 	print(post3)
