@@ -33,9 +33,11 @@ class MembersStore:
 
 	def update(self, member, new_name, new_age):
 		all_members = self.get_all()
-		for member in all_members:
-			member.name = new_name
-			member.age = new_age
+
+		for current_member in all_members:
+			if current_member.id == member.id:
+				current_member.name = new_name
+				current_member.age = new_age
 
 	def get_by_name(self, name):
 		return (member for member in self.get_all() if member.name == member_name)
