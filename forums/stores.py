@@ -51,8 +51,8 @@ class PostsStore:
 	def get_all(self):
 		return PostsStore.posts
 
-	def update(self, post, new_post_title, new_post_subject):
+	def update(self, post):
 		all_posts = self.get_all()
-		for post in all_posts:
-			post.title = new_post_title
-			post.subject = new_post_subject
+
+		return [post if current_post.id == post.id else current_post for current_post in all_posts]
+		

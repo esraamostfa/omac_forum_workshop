@@ -63,11 +63,6 @@ def update_member(members_store, member):
     print(member_copy.name)
     print(member)
     print_all_members(members_store)
-
-def update_post(posts_store, post):
-	posts_store.update(post, "updated post", "this post is updated")
-	print(post.title + ":" , post.subject)
-	print("=" * 30)
 	
 def get_member_by_name(members_store, name):	
 	print(members_store.get_by_name(name))
@@ -87,5 +82,4 @@ print_all_members(members_store)
 get_member_by_id(members_store, 1)
 delete_member(members_store, member2)
 update_member(members_store ,member3)
-update_post(posts_store, post1)
 get_member_by_name(members_store, "Mohammad")
