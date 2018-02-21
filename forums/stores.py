@@ -32,8 +32,10 @@ class MembersStore:
 		all_members.remove(member_to_delete)
 
 	def update(self, member, new_name, new_age):
-		member.name = new_name
-		member.age = new_age
+		all_members = self.get_all()
+		for member in all_members:
+			member.name = new_name
+			member.age = new_age
 
 	
 	def get_by_name(self, name):
@@ -54,5 +56,7 @@ class PostsStore:
 		return PostsStore.posts
 
 	def update(self, post, new_post_title, new_post_subject):
-		post.title = new_post_title
-		post.subject = new_post_subject
+		all_posts = self.get_all()
+		for post in all_posts:
+			post.title = new_post_title
+			post.subject = new_post_subject

@@ -49,19 +49,13 @@ def delete_member(members_store, member):
 	print("=" * 30)
 
 def update_member(members_store ,member):
-
-	member_copy = models.Member(member.name, member.age, member.id)
-	members_store.update(member_copy, 'Mazen', 21)
+	members_store.update(member, 'Mazen', 21)
 	print(member.name, member.age)
-	print(member_copy.name, member_copy.age)
 	print("=" * 30)
 
 def update_post(posts_store, post):
-
-	post_copy = models.Post(post.title, post.subject)
-	posts_store.update(post_copy, "post copy", "this is post copy")
+	posts_store.update(post, "updated post", "this post is updated")
 	print(post.title + ":" , post.subject)
-	print(post_copy.title + ":", post_copy.subject)
 	print("=" * 30)
 	
 def get_member_by_name(members_store, name):	
