@@ -38,15 +38,7 @@ class MembersStore:
 			member.age = new_age
 
 	def get_by_name(self, name):
-		all_members = self.get_all()
-		result = []
-
-		for member in all_members:
-			if member.name == name:
-				result.append(member)
-
-		return result
-
+		return (member for member in self.get_all() if member.name == member_name)
 
 class PostsStore:
 	posts = []
