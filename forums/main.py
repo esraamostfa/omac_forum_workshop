@@ -81,6 +81,10 @@ def print_members_with_posts(members_store):
 
 	print("=" * 30)
 
+def print_top_two(members_store):
+	print(members_store.get_top_two())
+	print("=" * 30)
+
 #--------------------------call functions for tests------------------------
 
 members_store = stores.MembersStore()
@@ -98,3 +102,4 @@ delete_member(members_store, member2)
 update_member(members_store ,member3)
 get_member_by_name(members_store, "Mohammad")
 print_members_with_posts(members_store)
+print_top_two(members_store)

@@ -50,6 +50,13 @@ class MembersStore:
 
 		return (all_members)
 
+
+	def get_top_two(self):
+		all_members_with_posts = self.get_members_with_posts(PostsStore.posts)
+		sorted_members = sorted(all_members_with_posts, key = lambda member: len(member.posts), reverse=True)
+
+		return sorted_members[:2]
+
 class PostsStore:
 	posts = []
 	last_id = 1
