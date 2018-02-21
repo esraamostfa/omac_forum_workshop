@@ -20,12 +20,15 @@ def creat_posts():
 	post1 = models.Post("post 1", "this is post 1", 1)
 	post2 = models.Post("post 2", "this is post 2", 2)
 	post3 = models.Post("post 3", "this is post 3", 3)
+	post4 = models.Post("post 4", "this is post 4", 3)
+	post5 = models.Post("post 5", "this is post 5", 1)
+	post6 = models.Post("post 6", "this is post 6", 3)
 	print(post1)
 	print(post2)
 	print(post3)
 	print("=" * 30)
 
-	return post1, post2, post3
+	return post1, post2, post3, post4, post5, post6 
 
 def add_members_to_store(member_instances, members_store):
 
@@ -78,9 +81,6 @@ def print_members_with_posts(members_store):
 
 	print("=" * 30)
 
-
-
-
 #--------------------------call functions for tests------------------------
 
 members_store = stores.MembersStore()
@@ -88,7 +88,7 @@ posts_store = stores.PostsStore()
 member_instances = creat_members()
 member1, member2, member3 = member_instances
 post_instances = creat_posts()
-post1, post2, post3 = post_instances
+post1, post2, post3, post4, post5, post6 = post_instances
 
 add_members_to_store(member_instances, members_store)
 add_posts_to_store(post_instances, posts_store)
