@@ -4,6 +4,9 @@ class Member:
 		self.age = age
 		self.id = 0
 
+	def __str__(self):
+        return f"Name: {self.name}, Age: {self.age}"
+
 
 class Post:
 	def __init__(self, title, subject):
