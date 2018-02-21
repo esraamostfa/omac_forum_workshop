@@ -7,6 +7,7 @@ def creat_members():
 
 	member1 = models.Member("Mohammad", 23, id)
 	member2 = models.Member("Ahmad", 25, id)
+	member3 = models.Member("Mohammad", 21, id)
 	print(member1)
 	print(member2)
 	print("=" * 30)
