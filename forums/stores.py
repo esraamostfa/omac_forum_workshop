@@ -1,3 +1,5 @@
+from itertools import product
+
 class MembersStore:
 	members = []
 	last_id = 1
@@ -42,20 +44,11 @@ class MembersStore:
 	def get_members_with_posts(self, all_posts):
 		all_members = self.get_all()
 
-		for post in all_posts:
-			for member in all_members:
-				if post.member_id == member.id:
-					member.posts.append(post)
+		for post, member in product(all_posts, all_members):
+			if post.member_id == member.id:
+				member.posts.append(post)
 
 		return (all_members)
-
-	def get_top_two(self):
-		all_members_with_posts = self.get_members_with_posts(PostsStore.posts)
-
-		sorted_members = all_members_with_posts.sort(key = lambda x: x.posts)
-
-		return sorted_members[0,1]
-
 
 class PostsStore:
 	posts = []
