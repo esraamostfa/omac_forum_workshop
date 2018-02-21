@@ -10,9 +10,10 @@ def creat_members():
 	member3 = models.Member("Mohammad", 21)
 	print(member1)
 	print(member2)
+	print(member3)
 	print("=" * 30)
 
-	return member1, member2
+	return member1, member2, member3
 
 def creat_posts():
 
@@ -67,12 +68,10 @@ def get_member_by_name(members_store, name):
 members_store = stores.MembersStore()
 posts_store = stores.PostsStore()
 member_instances = creat_members()
-member1, member2 = member_instances
+member1, member2, member3 = member_instances
 post_instances = creat_posts()
 post1, post2, post3 = post_instances
 
-creat_members()
-creat_posts()
 add_members_to_store(member_instances, members_store)
 add_posts_to_store(post_instances, posts_store)
 print_all_members(members_store)
