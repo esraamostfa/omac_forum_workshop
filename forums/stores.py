@@ -51,8 +51,13 @@ class PostsStore:
 	def get_all(self):
 		return PostsStore.posts
 
+	def delete(self, id):
+		all_posts = self.get_all()
+		post_to_delete = self.get_by_id(id)
+
+		all_posts.remove(post_to_delete)
+
 	def update(self, post):
 		all_posts = self.get_all()
 
 		return [post if current_post.id == post.id else current_post for current_post in all_posts]
-		
