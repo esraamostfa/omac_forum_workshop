@@ -5,7 +5,7 @@ class Member:
 		self.id = 0
 
 	def __str__(self):
-        return f"Name: {self.name}, Age: {self.age}"
+		return f"Name: {self.name}, Age: {self.age}"
 
 
 class Post:
@@ -13,3 +13,6 @@ class Post:
 		self.title = title
 		self.subject = subject
 		self.id = 0
+
+	def __str__(self):
+		return f"{self.title}: {self.subject}"
