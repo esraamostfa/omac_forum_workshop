@@ -31,13 +31,10 @@ class MembersStore:
 
 		all_members.remove(member_to_delete)
 
-	def update(self, member, new_name, new_age):
+	def update(self, member):
 		all_members = self.get_all()
 
-		for current_member in all_members:
-			if current_member.id == member.id:
-				current_member.name = new_name
-				current_member.age = new_age
+		return [member if current_member.id == member.id else current_member for current_member in all_members]
 
 	def get_by_name(self, name):
 		return (member for member in self.get_all() if member.name == name)

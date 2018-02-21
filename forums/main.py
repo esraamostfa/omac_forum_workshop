@@ -50,10 +50,19 @@ def delete_member(members_store, member):
 	print(members_store.entity_exists(member))
 	print("=" * 30)
 
-def update_member(members_store ,member):
-	members_store.update(member, 'Mazen', 21)
-	print(member.name, member.age)
-	print("=" * 30)
+def update_member(members_store, member):
+    member_copy = models.Member(member.name, member.age)
+    member_copy.id = member.id
+
+    if member_copy is not member:
+        print("member and member_copy are not the same !")
+
+    print(member_copy)
+    member_copy.name = "Mazen"
+    members_store.update(member_copy)
+    print(member_copy.name)
+    print(member)
+    print_all_members(members_store)
 
 def update_post(posts_store, post):
 	posts_store.update(post, "updated post", "this post is updated")
@@ -77,6 +86,6 @@ add_posts_to_store(post_instances, posts_store)
 print_all_members(members_store)
 get_member_by_id(members_store, 1)
 delete_member(members_store, member2)
-update_member(members_store ,member1)
+update_member(members_store ,member3)
 update_post(posts_store, post1)
 get_member_by_name(members_store, "Mohammad")
