@@ -41,9 +41,12 @@ class MembersStore:
 
 class PostsStore:
 	posts = []
+	last_id = 1
 
 	def add(self, post):
+		post.id = PostsStore.last_id
 		PostsStore.posts.append(post)
+		PostsStore.last_id += 1
 
 	def get_all(self):
 		return PostsStore.posts

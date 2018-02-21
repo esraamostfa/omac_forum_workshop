@@ -9,3 +9,4 @@ class Post:
 	def __init__(self, title, subject):
 		self.title = title
 		self.subject = subject
+		self.id = 0
