@@ -48,7 +48,7 @@ class MembersStore:
 			if post.member_id == member.id:
 				member.posts.append(post)
 
-		return (all_members)
+		return (member for member in all_members)
 
 
 	def get_top_two(self):
