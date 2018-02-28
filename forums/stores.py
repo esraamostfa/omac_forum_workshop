@@ -1,42 +1,55 @@
 from itertools import product
 
-class MembersStore:
-	members = []
-	last_id = 1
+class BaseStore:
+	def __init__(self, data_provider, last_id):
+		self._data_provider = data_provider
+		self._last_id = last_id
 
-	def add(self, member):		
-		member.id = MembersStore.last_id
-		MembersStore.members.append(member)
-		MembersStore.last_id += 1
+	def add(self, instance):		
+		instance.id = self.last_id
+		self._data_provider.append(instance)
+		self._last_id += 1
 
 	def get_all(self):
-		return MembersStore.members
+		return self._data_provider
 
 	def get_by_id(self, id):
 
-		all_members = self.get_all()
+		all_instances = self.get_all()
 
-		for member in all_members:
-			if member.id == id:
-				return member 
+		for instance in all_instances:
+			if instance.id == id:
+				return instance 
 		return None
 
-	def entity_exists(self, member):
+	def delete(self, id):
+		all_instances = self.get_all()
+		instance_to_delete = self.get_by_id(id)
 
-		if self.get_by_id(member.id) is None:
+		all_instances.remove(instance_to_delete)
+
+	def entity_exists(self, instance):
+
+		if self.get_by_id(instance.id) is None:
 			return False
 		return True
 
-	def delete(self, id):
-		all_members = self.get_all()
-		member_to_delete = self.get_by_id(id)
+	def update(self, instance):
+		all_instances = self.get_all()
+		for i, current_instance in enumerate(all_instances):
+			if instance.id == current_instance.id:
+				all_instances[i] = instance
+				break
 
-		all_members.remove(member_to_delete)
+		return instance
+			
 
-	def update(self, member):
-		all_members = self.get_all()
+class MembersStore(BaseStore):
+	members = []
+	last_id = 1
 
-		return [member if current_member.id == member.id else current_member for current_member in all_members]
+	def __init__(self):
+		super().__init__(MembersStore.members, MembersStore.last_id)
 
 	def get_by_name(self, name):
 		return (member for member in self.get_all() if member.name == name)
@@ -57,28 +70,12 @@ class MembersStore:
 
 		return sorted_members[:2]
 
-class PostsStore:
+class PostsStore(BaseStore):
 	posts = []
 	last_id = 1
 
-	def add(self, post):
-		post.id = PostsStore.last_id
-		PostsStore.posts.append(post)
-		PostsStore.last_id += 1
-
-	def get_all(self):
-		return PostsStore.posts
-
-	def delete(self, id):
-		all_posts = self.get_all()
-		post_to_delete = self.get_by_id(id)
-
-		all_posts.remove(post_to_delete)
-
-	def update(self, post):
-		all_posts = self.get_all()
-
-		return [post if current_post.id == post.id else current_post for current_post in all_posts]
+	def __init__(self):
+		super().__init__(PostsStore.posts, PostsStore.last_id)
 
 	def get_posts_by_date(self):
 		all_posts = self.get_all()
