@@ -79,3 +79,9 @@ class PostsStore:
 		all_posts = self.get_all()
 
 		return [post if current_post.id == post.id else current_post for current_post in all_posts]
+
+	def get_posts_by_date(self):
+		all_posts = self.get_all()
+		all_posts.sort(key =lambda post: post.date , reverse = True)
+
+		return (post for post in all_posts)

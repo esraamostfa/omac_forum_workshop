@@ -85,6 +85,9 @@ def print_top_two(members_store):
 	print(members_store.get_top_two())
 	print("=" * 30)
 
+def print_date_sorted_posts(posts_store):
+	print(posts_store.get_posts_by_date())
+
 #--------------------------call functions for tests------------------------
 
 members_store = stores.MembersStore()
@@ -103,3 +106,4 @@ update_member(members_store ,member3)
 get_member_by_name(members_store, "Mohammad")
 print_members_with_posts(members_store)
 print_top_two(members_store)
+print_date_sorted_posts(posts_store)
