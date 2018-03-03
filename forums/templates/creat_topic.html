@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Arab Coders</title>
+	<link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 	<header>
@@ -16,7 +17,9 @@
 	        </nav>
 	</header>
 	<form action="{{ url_for("creat_topic") }}" method="post">
+		<label> الموضوع</label>
 		<input type="text" name="title" />
+		<label>المحتوى</label>
 		<input type="text" name="content"/>
 		<input type="submit" value="Create"/>
 	</form>

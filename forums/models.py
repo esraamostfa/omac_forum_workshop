@@ -12,7 +12,7 @@ class Member:
 
 
 class Post:
-	def __init__(self, title, subject, member_id):
+	def __init__(self, title, subject, member_id=0):
 		self.title = title
 		self.subject = subject
 		self.id = 0
