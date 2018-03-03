@@ -18,24 +18,11 @@
     </header>
         <main>
             <table>
-                <tr>
-                    <td>الموضوع (1)</td>
-                </tr>
-                <tr>
-                    <td>الموضوع (2)</td>
-                </tr>
-                <tr>
-                    <td>الموضوع (3)</td>
-                </tr>
-                <tr>
-                    <td>الموضوع (4)</td>
-                </tr>
-                <tr>
-                    <td>الموضوع (5)</td>
-                </tr>
-                <tr>
-                    <td>الموضوع (6)</td>
-                </tr>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{post.title}}</td>
+                    </tr>
+                {% endfor %}
             </table>
     </main>
 </body>

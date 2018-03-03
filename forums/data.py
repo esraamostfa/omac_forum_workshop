@@ -1,6 +1,6 @@
-from forums import models
-from forums import stores
+import models
+import stores
 
-post_store = stores.PostStore()
-post_store.add(models.Post("Life", "Life is alawys great"))
-post_store.add(models.Post("Sunshine", "Sunshine is amazing"))
+posts_store = stores.PostsStore()
+posts_store.add(models.Post("Life", "Life is alawys great", 1))
+posts_store.add(models.Post("Sunshine", "Sunshine is amazing", 2))
