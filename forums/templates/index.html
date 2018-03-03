@@ -13,17 +13,17 @@
             <a href="profile.html">الملف الشخصي</a>
             <a href="members.html">الأعضاء</a>
             <a href="search.html">بحث</a>
-            <a href="creat.html">إنشاء</a>
+            <a href="creat_topic.html">إنشاء</a>
         </nav>
     </header>
-        <main>
-            <table>
-                {% for post in posts %}
-                    <tr>
-                        <td>{{post.title}}</td>
-                    </tr>
-                {% endfor %}
-            </table>
+    <main>
+        <table>
+            {% for post in posts %}
+                <tr>
+                    <td>{{post.title}}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </main>
 </body>
 </html>
